@@ -1,13 +1,12 @@
 terraform {
-  required_version = ">=0.11.0"
+  required_providers {
+    mycloud = {
+      source  = "hashicorp/aws"
+      version = ">= 1.0"
+    }
+  }
 }
 
-provider "aws" {
-  region = "us-west-2"
-  version    = "~> 4.0"
-  access_key = "AKIA4FJAY3AIMRUM345F"
-  secret_key = "Munesh@143"
-}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
