@@ -13,7 +13,9 @@ terraform {
 
 provider "aws" {
   region = "us-west-2"
-  version    = "~> 2.0"
+  version    = "~> 4.0"
+  access_key = "AKIA4FJAY3AIMRUM345F"
+  secret_key = "Munesh@143"
 }
 
 data "aws_ami" "ubuntu" {
