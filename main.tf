@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-    mycloud = {
+    ubuntu = {
       source  = "hashicorp/aws"
       version = ">= 1.0"
     }
