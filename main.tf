@@ -1,7 +1,5 @@
 provider "aws" {
   region = "us-west-2"
-  AWS_ACCESS_KEY_ID = "AKIA4FJAY3AIMRUM345F"
-  AWS_SECRET_ACCESS_KEY = "Munesh@143"
 }
 
 resource "aws_vpc" "my_vpc" {
@@ -19,14 +17,5 @@ resource "aws_subnet" "my_subnet" {
 
   tags = {
     Name = "tf-example"
-  }
-}
-
-resource "aws_network_interface" "foo" {
-  subnet_id   = "${aws_subnet.my_subnet.id}"
-  private_ips = ["172.16.10.100"]
-
-  tags = {
-    Name = "primary_network_interface"
   }
 }
