@@ -1,12 +1,20 @@
+#terraform {
+  #required_providers {
+    #ubuntu = {
+    #  source  = "hashicorp/aws"
+   #   version = ">= 1.0"
+  #  }
+ # }
+#}
+
 terraform {
-  required_providers {
-    ubuntu = {
-      source  = "hashicorp/aws"
-      version = ">= 1.0"
-    }
-  }
+  required_version = ">=0.13.0"
 }
 
+provider "aws" {
+  region = "us-west-2"
+  version    = "~> 2.0"
+}
 
 data "aws_ami" "ubuntu" {
   most_recent = true
@@ -21,10 +29,10 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
 
-  owners = ["099720109477"] # Canonical
+  owners = ["835976747024"] # Canonical
 }
 
-resource "aws_instance" "ubuntu" {
+resource "aws_instance" "web" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
 
